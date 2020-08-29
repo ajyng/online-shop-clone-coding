@@ -65,5 +65,17 @@ See Our Cushion Collection - Perfect Cushion Store
         </div>
         {% endfor %}
     </div>
+
+    <div class="mx-auto">
+        {% if products.paginator.num_pages > 1 %}
+            <br>
+            <div class="text-center">
+                {% for pg in products.paginator.page_range %}
+                    <a href="?page={{pg}}" class="btn btn-light btn-sm {% if products.number == pg %}active{% endif %}">{{pg}}</a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    <br>
 </div>
 {% endblock %}
